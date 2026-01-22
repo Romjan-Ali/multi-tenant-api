@@ -1,5 +1,4 @@
 {
-  "bunVersion": "1.x",
   "version": 2,
   "builds": [
     {
@@ -12,5 +11,8 @@
       "src": "/(.*)",
       "dest": "src/app.ts"
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }

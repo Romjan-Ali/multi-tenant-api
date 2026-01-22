@@ -22,7 +22,12 @@ export class AuthService {
       throw new AppError(401, 'Invalid email or password')
     }
 
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET!, {
+    const jwtSecret = process.env.JWT_SECRET
+    if (!jwtSecret) {
+      throw new AppError(500, 'JWT_SECRET environment variable is not set')
+    }
+
+    const token = jwt.sign({ userId: user.id }, jwtSecret, {
       expiresIn: '7d',
     })
 
@@ -81,9 +86,14 @@ export class AuthService {
       return { user, organization }
     })
 
+    const jwtSecret = process.env.JWT_SECRET
+    if (!jwtSecret) {
+      throw new AppError(500, 'JWT_SECRET environment variable is not set')
+    }
+
     const token = jwt.sign(
       { userId: result.user.id },
-      process.env.JWT_SECRET!,
+      jwtSecret,
       { expiresIn: '7d' },
     )
 
