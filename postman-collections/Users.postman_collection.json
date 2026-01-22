@@ -2,9 +2,7 @@
   "info": {
     "_postman_id": "1d397d18-42c0-4083-b1f7-54d43aa21928",
     "name": "Users",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "30842222",
-    "_collection_link": "https://go.postman.co/collection/30842222-1d397d18-42c0-4083-b1f7-54d43aa21928?source=collection_link"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
@@ -13,31 +11,23 @@
         "method": "POST",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"email\": \"sohan@platform.com\",\n    \"password\": \"user123!\",\n    \"role\": \"ORGANIZATION_MEMBER\"\n}\n",
+          "raw": "{\n  \"email\": \"sohan@platform.com\",\n  \"password\": \"user123!\",\n  \"role\": \"ORGANIZATION_MEMBER\"\n}",
           "options": {
-            "raw": {
-              "language": "json"
-            }
+            "raw": { "language": "json" }
           }
         },
         "url": {
-          "raw": "{{base_url}}/",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            ""
-          ]
+          "raw": "{{base_url}}",
+          "host": ["{{base_url}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Get Users",
@@ -45,42 +35,34 @@
         "method": "GET",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "url": {
           "raw": "{{base_url}}",
-          "host": [
-            "{{base_url}}"
-          ]
+          "host": ["{{base_url}}"]
         }
-      },
-      "response": []
+      }
     },
     {
-      "name": "Get User",
+      "name": "Get User by ID",
       "request": {
         "method": "GET",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "url": {
-          "raw": "{{base_url}}/cmkoz27qi00081yhxx5ak8o6n",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkoz27qi00081yhxx5ak8o6n"
-          ]
+          "raw": "{{base_url}}/{{user_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["{{user_id}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Update User",
@@ -88,31 +70,24 @@
         "method": "PATCH",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"email\": \"shahin@platform.com\"\n}",
+          "raw": "{\n  \"email\": \"shahin@platform.com\"\n}",
           "options": {
-            "raw": {
-              "language": "json"
-            }
+            "raw": { "language": "json" }
           }
         },
         "url": {
-          "raw": "{{base_url}}/cmkoz473z00091yhx5qqx16sy",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkoz473z00091yhx5qqx16sy"
-          ]
+          "raw": "{{base_url}}/{{user_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["{{user_id}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Delete User",
@@ -120,53 +95,31 @@
         "method": "DELETE",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "url": {
-          "raw": "{{base_url}}/cmkoz67y5000b1yhxpcfr8ru6",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkoz67y5000b1yhxpcfr8ru6"
-          ]
+          "raw": "{{base_url}}/{{user_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["{{user_id}}"]
         }
-      },
-      "response": []
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [
-          "const global_url = pm.globals.get(\"global_url\");",
-          "pm.collectionVariables.set(\"base_url\", global_url + \"/users\")"
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [
-          ""
-        ]
       }
     }
   ],
   "variable": [
     {
       "key": "base_url",
+      "value": "https://multi-tenant-api-xll7.onrender.com/api/users"
+    },
+    {
+      "key": "authorization_token",
       "value": ""
+    },
+    {
+      "key": "user_id",
+      "value": "cmkoz473z00091yhx5qqx16sy"
     }
   ]
 }

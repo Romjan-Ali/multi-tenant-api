@@ -2,9 +2,7 @@
   "info": {
     "_postman_id": "85f3d1fc-8fe4-467a-8744-5c95e4f09b9a",
     "name": "Projects",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "30842222",
-    "_collection_link": "https://go.postman.co/collection/30842222-85f3d1fc-8fe4-467a-8744-5c95e4f09b9a?source=collection_link"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
@@ -13,31 +11,23 @@
         "method": "POST",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"name\": \"Task Management Platform\",\n    \"description\": \"A platform to organize projects and tasks, assign work to team members, and track progress in real time.\"\n}",
+          "raw": "{\n  \"name\": \"Task Management Platform\",\n  \"description\": \"A platform to organize projects and tasks, assign work to team members, and track progress in real time.\"\n}",
           "options": {
-            "raw": {
-              "language": "json"
-            }
+            "raw": { "language": "json" }
           }
         },
         "url": {
-          "raw": "{{base_url}}/",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            ""
-          ]
+          "raw": "{{base_url}}",
+          "host": ["{{base_url}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Get Projects",
@@ -45,19 +35,16 @@
         "method": "GET",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "url": {
           "raw": "{{base_url}}",
-          "host": [
-            "{{base_url}}"
-          ]
+          "host": ["{{base_url}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Get Project by ID",
@@ -65,22 +52,17 @@
         "method": "GET",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "url": {
-          "raw": "{{base_url}}/cmkoyst0000041yhxrstqd4xs",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkoyst0000041yhxrstqd4xs"
-          ]
+          "raw": "{{base_url}}/{{project_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["{{project_id}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Update Project",
@@ -88,31 +70,24 @@
         "method": "PATCH",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"name\": \"Mobile App Development\",\n    \"description\": \"Development of a cross-platform mobile application with authentication, APIs, and database integration.\"\n}",
+          "raw": "{\n  \"name\": \"Mobile App Development\",\n  \"description\": \"Development of a cross-platform mobile application with authentication, APIs, and database integration.\"\n}",
           "options": {
-            "raw": {
-              "language": "json"
-            }
+            "raw": { "language": "json" }
           }
         },
         "url": {
-          "raw": "{{base_url}}/cmkoyst0000041yhxrstqd4xs",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkoyst0000041yhxrstqd4xs"
-          ]
+          "raw": "{{base_url}}/{{project_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["{{project_id}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Delete Project",
@@ -120,53 +95,31 @@
         "method": "DELETE",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "url": {
-          "raw": "{{base_url}}/cmkoyyz7m00071yhxj5jdv1ko",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkoyyz7m00071yhxj5jdv1ko"
-          ]
+          "raw": "{{base_url}}/{{project_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["{{project_id}}"]
         }
-      },
-      "response": []
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [
-          "const global_url = pm.globals.get(\"global_url\");",
-          "pm.collectionVariables.set(\"base_url\", global_url + \"/projects\")"
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [
-          ""
-        ]
       }
     }
   ],
   "variable": [
     {
       "key": "base_url",
+      "value": "https://multi-tenant-api-xll7.onrender.com/api/projects"
+    },
+    {
+      "key": "authorization_token",
       "value": ""
+    },
+    {
+      "key": "project_id",
+      "value": "cmkoyyz7m00071yhxj5jdv1ko"
     }
   ]
 }

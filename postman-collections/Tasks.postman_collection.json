@@ -2,9 +2,7 @@
   "info": {
     "_postman_id": "16d40309-ba69-4436-8bd3-698d26eeace3",
     "name": "Tasks",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "30842222",
-    "_collection_link": "https://go.postman.co/collection/30842222-16d40309-ba69-4436-8bd3-698d26eeace3?source=collection_link"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
@@ -13,31 +11,23 @@
         "method": "POST",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"Implement push notification support\",\n  \"description\": \"Add push notifications for task assignments and status updates in the mobile app.\",\n  \"projectId\": \"cmkoyst0000041yhxrstqd4xs\",\n  \"priority\": \"low\"\n}\n",
+          "raw": "{\n  \"title\": \"Implement push notification support\",\n  \"description\": \"Add push notifications for task assignments and status updates in the mobile app.\",\n  \"projectId\": \"{{project_id}}\",\n  \"priority\": \"low\"\n}",
           "options": {
-            "raw": {
-              "language": "json"
-            }
+            "raw": { "language": "json" }
           }
         },
         "url": {
-          "raw": "{{base_url}}/",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            ""
-          ]
+          "raw": "{{base_url}}",
+          "host": ["{{base_url}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Get Tasks",
@@ -45,42 +35,34 @@
         "method": "GET",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "url": {
           "raw": "{{base_url}}",
-          "host": [
-            "{{base_url}}"
-          ]
+          "host": ["{{base_url}}"]
         }
-      },
-      "response": []
+      }
     },
     {
-      "name": "Get Task",
+      "name": "Get Task by ID",
       "request": {
         "method": "GET",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "url": {
-          "raw": "{{base_url}}/cmkozd5ba000g1yhxo0x8jvbt",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkozd5ba000g1yhxo0x8jvbt"
-          ]
+          "raw": "{{base_url}}/{{task_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["{{task_id}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Update Task",
@@ -88,31 +70,24 @@
         "method": "PATCH",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"status\": \"in_progress\"\n}",
+          "raw": "{\n  \"status\": \"in_progress\"\n}",
           "options": {
-            "raw": {
-              "language": "json"
-            }
+            "raw": { "language": "json" }
           }
         },
         "url": {
-          "raw": "{{base_url}}/cmkozcvbe000f1yhxuemt90o6",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkozcvbe000f1yhxuemt90o6"
-          ]
+          "raw": "{{base_url}}/{{task_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["{{task_id}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Delete Task",
@@ -120,22 +95,17 @@
         "method": "DELETE",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "url": {
-          "raw": "{{base_url}}/cmkozddhw000h1yhx8kld8e4e",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkozddhw000h1yhx8kld8e4e"
-          ]
+          "raw": "{{base_url}}/{{task_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["{{task_id}}"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Assign Task",
@@ -143,32 +113,24 @@
         "method": "POST",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"userId\": \"cmkoz473z00091yhx5qqx16sy\"\n}\n",
+          "raw": "{\n  \"userId\": \"{{user_id}}\"\n}",
           "options": {
-            "raw": {
-              "language": "json"
-            }
+            "raw": { "language": "json" }
           }
         },
         "url": {
-          "raw": "{{base_url}}/cmkozd5ba000g1yhxo0x8jvbt/assign",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkozd5ba000g1yhxo0x8jvbt",
-            "assign"
-          ]
+          "raw": "{{base_url}}/{{task_id}}/assign",
+          "host": ["{{base_url}}"],
+          "path": ["{{task_id}}", "assign"]
         }
-      },
-      "response": []
+      }
     },
     {
       "name": "Unassign Task",
@@ -176,63 +138,46 @@
         "method": "POST",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"userId\": \"cmkoz473z00091yhx5qqx16sy\"\n}\n",
+          "raw": "{\n  \"userId\": \"{{user_id}}\"\n}",
           "options": {
-            "raw": {
-              "language": "json"
-            }
+            "raw": { "language": "json" }
           }
         },
         "url": {
-          "raw": "{{base_url}}/cmkozd5ba000g1yhxo0x8jvbt/unassign",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "cmkozd5ba000g1yhxo0x8jvbt",
-            "unassign"
-          ]
+          "raw": "{{base_url}}/{{task_id}}/unassign",
+          "host": ["{{base_url}}"],
+          "path": ["{{task_id}}", "unassign"]
         }
-      },
-      "response": []
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [
-          "const global_url = pm.globals.get(\"global_url\");",
-          "pm.collectionVariables.set(\"base_url\", global_url + \"/tasks\")"
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [
-          ""
-        ]
       }
     }
   ],
   "variable": [
     {
       "key": "base_url",
+      "value": "https://multi-tenant-api-xll7.onrender.com/api/tasks"
+    },
+    {
+      "key": "authorization_token",
       "value": ""
+    },
+    {
+      "key": "project_id",
+      "value": "cmkoyyz7m00071yhxj5jdv1ko"
+    },
+    {
+      "key": "task_id",
+      "value": "cmkozd5ba000g1yhxo0x8jvbt"
+    },
+    {
+      "key": "user_id",
+      "value": "cmkoz473z00091yhx5qqx16sy"
     }
   ]
 }

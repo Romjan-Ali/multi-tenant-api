@@ -2,33 +2,53 @@
   "info": {
     "_postman_id": "3e07ddc8-b47f-4ba0-8dce-370f5c440e0f",
     "name": "Me",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "30842222",
-    "_collection_link": "https://go.postman.co/collection/30842222-3e07ddc8-b47f-4ba0-8dce-370f5c440e0f?source=collection_link"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "Me",
+      "name": "Get Current User (Me)",
       "request": {
         "method": "GET",
         "header": [
           {
-            "key": "authorization",
+            "key": "Authorization",
             "value": "{{authorization_token}}",
             "type": "text"
           }
         ],
         "url": {
-          "raw": "{{global_url}}/me",
-          "host": [
-            "{{global_url}}"
-          ],
-          "path": [
-            "me"
-          ]
+          "raw": "{{base_url}}/me",
+          "host": ["{{base_url}}"],
+          "path": ["me"]
         }
       },
-      "response": []
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 200', () => {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('User profile returned', () => {",
+              "  const res = pm.response.json();",
+              "  pm.expect(res.data).to.have.property('email');",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://multi-tenant-api-xll7.onrender.com/api/auth"
+    },
+    {
+      "key": "authorization_token",
+      "value": ""
     }
   ]
 }
