@@ -59,8 +59,12 @@ export class ProjectController {
         throw new AppError(401, 'Authentication required')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const project = await projectService.getProject(
-        req.params.id,
+        req.params.id as string,
         req.user.id,
         req.user.role,
         req.user.organizationId,
@@ -80,8 +84,12 @@ export class ProjectController {
         throw new AppError(401, 'Authentication required')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const project = await projectService.updateProject(
-        req.params.id,
+        req.params.id as string,
         req.body,
         req.user.id,
         req.user.role,
@@ -102,8 +110,12 @@ export class ProjectController {
         throw new AppError(401, 'Authentication required')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const result = await projectService.deleteProject(
-        req.params.id,
+        req.params.id as string,
         req.user.id,
         req.user.role,
         req.user.organizationId,

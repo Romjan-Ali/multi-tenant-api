@@ -56,8 +56,12 @@ export class TaskController {
         throw new AppError(401, 'Authentication required')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const task = await taskService.getTask(
-        req.params.id,
+        req.params.id as string,
         req.user.id,
         req.user.role,
         req.user.organizationId,
@@ -77,8 +81,12 @@ export class TaskController {
         throw new AppError(401, 'Authentication required')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const task = await taskService.updateTask(
-        req.params.id,
+        req.params.id as string,
         req.body,
         req.user.id,
         req.user.role,
@@ -99,8 +107,12 @@ export class TaskController {
         throw new AppError(401, 'Authentication required')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const result = await taskService.deleteTask(
-        req.params.id,
+        req.params.id as string,
         req.user.id,
         req.user.role,
         req.user.organizationId,
@@ -122,8 +134,12 @@ export class TaskController {
 
       const { userId } = req.body
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const task = await taskService.assignTaskToUser(
-        req.params.id,
+        req.params.id as string,
         userId,
         req.user.id,
         req.user.role,
@@ -146,8 +162,12 @@ export class TaskController {
 
       const { userId } = req.body
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const task = await taskService.unassignTaskFromUser(
-        req.params.id,
+        req.params.id as string,
         userId,
         req.user.id,
         req.user.role,

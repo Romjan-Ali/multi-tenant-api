@@ -58,8 +58,12 @@ export class UserController {
         throw new AppError(401, 'Authentication required')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const user = await userService.getUser(
-        req.params.id,
+        req.params.id as string,
         req.user.role,
         req.user.organizationId,
       )
@@ -86,8 +90,12 @@ export class UserController {
         throw new AppError(403, 'Insufficient permissions to update users')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const user = await userService.updateUser(
-        req.params.id,
+        req.params.id as string,
         req.body,
         req.user.role,
         req.user.organizationId,
@@ -115,8 +123,12 @@ export class UserController {
         throw new AppError(403, 'Insufficient permissions to delete users')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const result = await userService.deleteUser(
-        req.params.id,
+        req.params.id as string,
         req.user.role,
         req.user.organizationId,
       )

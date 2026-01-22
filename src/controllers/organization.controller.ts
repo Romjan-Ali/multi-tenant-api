@@ -55,8 +55,12 @@ export class OrganizationController {
         throw new AppError(401, 'Authentication required')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const organization = await organizationService.getOrganization(
-        req.params.id,
+        req.params.id as string,
         req.user.role,
         req.user.organizationId,
       )
@@ -75,8 +79,12 @@ export class OrganizationController {
         throw new AppError(401, 'Authentication required')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const organization = await organizationService.updateOrganization(
-        req.params.id,
+        req.params.id as string,
         req.body,
         req.user.role,
         req.user.organizationId,
@@ -101,8 +109,12 @@ export class OrganizationController {
         throw new AppError(403, 'Only platform admin can delete organizations')
       }
 
+      if (!req.params.id) {
+        throw new AppError(400, 'Organization ID is required')
+      }
+
       const result = await organizationService.deleteOrganization(
-        req.params.id,
+        req.params.id as string,
         req.user.role,
         req.user.organizationId,
       )
