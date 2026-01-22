@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   async register(data: RegisterInput) {
-    const { email, password, name, organizationName } = data
+    const { email, password, organizationName } = data
 
     console.log('Registering user:', email, 'for organization:', organizationName)
 

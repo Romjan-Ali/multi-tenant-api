@@ -90,7 +90,8 @@ export class TaskService {
   }
 
   async getTasks(userId: string, userRole: Role, userOrganizationId: string) {
-    let whereClause: any = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const whereClause: any = {
       organizationId: userOrganizationId,
     }
 
@@ -201,6 +202,7 @@ export class TaskService {
       }
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updateData: any = { ...data }
 
     // Handle assignee updates

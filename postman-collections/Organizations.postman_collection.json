@@ -1,0 +1,175 @@
+{
+  "info": {
+    "_postman_id": "9626214b-7acc-43af-b5f1-c1ceb4edfc3d",
+    "name": "Organizations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30842222",
+    "_collection_link": "https://go.postman.co/collection/30842222-9626214b-7acc-43af-b5f1-c1ceb4edfc3d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get Organizations",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{authorization_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Organization by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{authorization_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/cmkoymqif00001yhxe1e3eraq",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cmkoymqif00001yhxe1e3eraq"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Organization (Platform Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWtveWpzNmUwMDAxMHRidjR4Y3A4NTl4IiwiaWF0IjoxNzY5MDU2NzM0LCJleHAiOjE3Njk2NjE1MzR9.wgXILFRNIiocFp7qSikihlI1U68cDzNIwNBxi6ZnAEc",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Bdcalling IT Limited\",\n    \"slug\": \"bdcalling-it-limited\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Organization",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWtveWpzNmUwMDAxMHRidjR4Y3A4NTl4IiwiaWF0IjoxNzY5MDU2NzM0LCJleHAiOjE3Njk2NjE1MzR9.wgXILFRNIiocFp7qSikihlI1U68cDzNIwNBxi6ZnAEc",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Backbencher Studio\",\n    \"slug\": \"backbencher-studio\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/cmkoypvii00021yhxn73zmb7j",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cmkoypvii00021yhxn73zmb7j"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Organization",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWtveWpzNmUwMDAxMHRidjR4Y3A4NTl4IiwiaWF0IjoxNzY5MDU2NzM0LCJleHAiOjE3Njk2NjE1MzR9.wgXILFRNIiocFp7qSikihlI1U68cDzNIwNBxi6ZnAEc",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/cmkoyub5j00051yhx0bl3pbf3",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cmkoyub5j00051yhx0bl3pbf3"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "const global_url = pm.globals.get(\"global_url\");",
+          "pm.collectionVariables.set(\"base_url\", global_url + \"/organizations\")"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "info": {
+    "_postman_id": "85f3d1fc-8fe4-467a-8744-5c95e4f09b9a",
+    "name": "Projects",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30842222",
+    "_collection_link": "https://go.postman.co/collection/30842222-85f3d1fc-8fe4-467a-8744-5c95e4f09b9a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Project",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{authorization_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Task Management Platform\",\n    \"description\": \"A platform to organize projects and tasks, assign work to team members, and track progress in real time.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Projects",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{authorization_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}",
+          "host": [
+            "{{base_url}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Project by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{authorization_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/cmkoyst0000041yhxrstqd4xs",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cmkoyst0000041yhxrstqd4xs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Project",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{authorization_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Mobile App Development\",\n    \"description\": \"Development of a cross-platform mobile application with authentication, APIs, and database integration.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/cmkoyst0000041yhxrstqd4xs",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cmkoyst0000041yhxrstqd4xs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Project",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{authorization_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/cmkoyyz7m00071yhxj5jdv1ko",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cmkoyyz7m00071yhxj5jdv1ko"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "const global_url = pm.globals.get(\"global_url\");",
+          "pm.collectionVariables.set(\"base_url\", global_url + \"/projects\")"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    }
+  ]
+}

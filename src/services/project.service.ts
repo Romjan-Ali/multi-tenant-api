@@ -48,6 +48,7 @@ export class ProjectService {
     userRole: Role,
     userOrganizationId: string,
   ) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let whereClause: any = {}
 
     if (userRole === Role.ORGANIZATION_MEMBER) {

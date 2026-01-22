@@ -5,7 +5,7 @@ import bcrypt from 'bcryptjs'
 const SALT_ROUNDS = 10
 
 async function main() {
-  console.log('🌱 Starting database seeding...')
+  console.log('Starting database seeding...')
 
   // Clear existing data (respect FK order)
   await prisma.task.deleteMany()
@@ -13,9 +13,7 @@ async function main() {
   await prisma.user.deleteMany()
   await prisma.organization.deleteMany()
 
-  // -------------------------------------
   // PLATFORM ORGANIZATION
-  // -------------------------------------
   const platformOrg = await prisma.organization.create({
     data: {
       name: 'Platform',
@@ -30,13 +28,11 @@ async function main() {
       email: 'admin@platform.com',
       password: platformAdminPassword,
       role: Role.PLATFORM_ADMIN,
-      organizationId: platformOrg.id, // ✅ VALID FK
+      organizationId: platformOrg.id, 
     },
   })
 
-  // -------------------------------------
   // ORGANIZATION 1
-  // -------------------------------------
   const org1 = await prisma.organization.create({
     data: {
       name: 'TechCorp Inc',
@@ -118,9 +114,7 @@ async function main() {
     },
   })
 
-  // -------------------------------------
   // ORGANIZATION 2
-  // -------------------------------------
   const org2 = await prisma.organization.create({
     data: {
       name: 'MarketingPro LLC',
@@ -146,12 +140,12 @@ async function main() {
     },
   })
 
-  console.log('✅ Database seeded successfully!')
+  console.log('Database seeded successfully!')
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Error seeding database:', e)
+    console.error('Error seeding database:', e)
     process.exit(1)
   })
   .finally(async () => {

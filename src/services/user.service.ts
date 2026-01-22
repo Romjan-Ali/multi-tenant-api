@@ -58,6 +58,7 @@ export class UserService {
     })
 
     // Remove password from response
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...userWithoutPassword } = user
     return userWithoutPassword
   }
@@ -151,6 +152,7 @@ export class UserService {
     // Check if user exists and requester has access
     await this.getUser(id, requesterRole, requesterOrganizationId)
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updateData: any = { ...data }
 
     // Hash password if provided

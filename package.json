@@ -7,9 +7,17 @@
     "start": "bun run src/app.ts",
     "dev": "bun --watch run src/app.ts",
     "build": "bun install",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "studio": "bunx prisma studio",
+    "seed": "bun run scripts/seed.ts",
+    "migrate:dev": "bunx prisma migrate dev",
+    "migrate:deploy": "bunx prisma migrate deploy",
+    "lint": "bunx eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@types/bun": "latest",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
@@ -17,7 +25,14 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/morgan": "^1.9.10",
     "@types/node": "^25.0.9",
-    "@types/pg": "^8.16.0"
+    "@types/pg": "^8.16.0",
+    "@typescript-eslint/eslint-plugin": "^8.53.1",
+    "@typescript-eslint/parser": "^8.53.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.0.0",
+    "prettier": "^3.8.1",
+    "typescript-eslint": "^8.53.1"
   },
   "peerDependencies": {
     "typescript": "^5"
