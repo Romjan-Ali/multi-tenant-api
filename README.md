@@ -212,6 +212,9 @@ Email: admin@platform.com
 Password: Admin123!
 
 Organization Admin:
+Email: sajib@example.com
+Password: SRCB.49@3
+.
 Email: orgadmin@example.com
 Password: OrgAdmin123!
 
